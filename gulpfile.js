@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var connect = require('gulp-connect');
 var watch = require('gulp-watch');
+var start = require('gulp-start-process');
 
 gulp.task('connect', function () {
     connect.server({
@@ -8,9 +9,17 @@ gulp.task('connect', function () {
     });
 });
 
+gulp.task('build', function (cb) {
+    start('node_modules/.bin/jspm bundle-sfx lib/index', cb);
+});
+
 gulp.task('watch', function () {
-    watch(['!jspm_packages', 'index.*', 'css/**/*', 'lib/**/*'])
+    watch(['lib/**/*'], function () {
+        gulp.start('build');
+    });
+
+    watch(['!jspm_packages', 'index.html', 'css/**/*', 'build.js'])
         .pipe(connect.reload());
 });
 
-gulp.task('default', ['connect', 'watch']);
+gulp.task('default', ['connect', 'build', 'watch']);
