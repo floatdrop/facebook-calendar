@@ -10,7 +10,7 @@ gulp.task('connect', function () {
 });
 
 gulp.task('build', function (cb) {
-    start('node_modules/.bin/jspm bundle-sfx lib/index', cb);
+    start('node_modules/.bin/jspm bundle-sfx lib/index.jsx!', cb);
 });
 
 gulp.task('watch', function () {

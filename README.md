@@ -11,8 +11,9 @@
 For development install NodeJS and clone this repo. Then do in console:
 
 ```
-npm i gulp -g
+npm i gulp jspm -g
 npm i
+jspm install
 gulp
 ```
 
