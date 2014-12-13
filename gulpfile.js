@@ -8,14 +8,20 @@ gulp.task('connect', function () {
         livereload: true
     });
 });
+
 gulp.task('watch', function () {
     watch(['!jspm_packages', 'lib/**/*', 'index.html', 'css/**/*'])
         .pipe(connect.reload());
 });
 
-gulp.task('tests', function (cb) {
+gulp.task('test', function (cb) {
+    start('npm test', cb);
+});
+
+gulp.task('tests', function () {
+    gulp.start('test');
     watch(['test/**/*', 'lib/**/*'], function () {
-        start('npm test', cb);
+        gulp.start('test');
     });
 
 });
