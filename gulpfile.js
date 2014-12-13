@@ -9,7 +9,7 @@ gulp.task('connect', function () {
 });
 
 gulp.task('watch', function () {
-    watch(['!jspm_packages', 'index.*', 'lib/**/*'])
+    watch(['!jspm_packages', 'index.*', 'css/**/*', 'lib/**/*'])
         .pipe(connect.reload());
 });
 

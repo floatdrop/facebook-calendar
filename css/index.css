@@ -3,7 +3,11 @@ body
     font-family: 'Lucida Grande', sans-serif;
 }
 
-.timestamp
+.calendar {
+    height: 720px;
+}
+
+.calendar--timestamp
 {
     font-size: 9px;
     font-weight: 200;
@@ -16,7 +20,7 @@ body
     color: #a7a7a7;
 }
 
-.timestamp:nth-child(odd)
+.calendar--timestamp:nth-child(odd)
 {
     font-size: 13px;
     font-weight: 500;
@@ -24,7 +28,7 @@ body
     color: #686868;
 }
 
-.timestamp span
+.calendar--timestamp-period
 {
     font-size: 9px;
     font-weight: 200;
@@ -32,36 +36,31 @@ body
     color: #a7a7a7;
 }
 
-.timestamp:nth-child(even) span
+.calendar--timestamp:nth-child(even) .calendar--timestamp-period
 {
     display: none;
 }
 
-.sidebar
+.calendar--timestamps
 {
     float: left;
 
     margin-top: -5px;
 }
 
-.container
-{
-    height: 720px;
-}
-
-.events
+.calendar--events
 {
     position: relative;
 
     width: 620px;
     height: 720px;
-    margin: 30px 0 0 60px;
+    margin: 10px 0 0 60px;
 
     border-left: 1px solid #d6d6d6;
     background-color: #ececec;
 }
 
-.event
+.calendar--event
 {
     position: absolute;
 
@@ -77,7 +76,7 @@ body
     background-color: white;
 }
 
-.event::after
+.calendar--event::after
 {
     position: absolute; top: 0; right: 0;
     bottom: 0; left: 0;
@@ -89,16 +88,21 @@ body
     border-bottom: 1px solid #d7d7d7;
 }
 
-.event .title
+.calendar--event > dl {
+    margin: 0;
+}
+
+.calendar--event > dl > dt
 {
     font-size: 13px;
 
     color: #4b6ea9;
 }
 
-.event .description
+.calendar--event > dl > dd
 {
     font-size: 9px;
 
     color: #a7a7a7;
+    margin: 0;
 }
