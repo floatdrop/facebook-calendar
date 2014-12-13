@@ -8,18 +8,16 @@ gulp.task('connect', function () {
         livereload: true
     });
 });
-
-gulp.task('build', function (cb) {
-    start('node_modules/.bin/jspm bundle-sfx lib/index.jsx!', cb);
-});
-
 gulp.task('watch', function () {
-    watch(['lib/**/*'], function () {
-        gulp.start('build');
-    });
-
-    watch(['!jspm_packages', 'index.html', 'css/**/*', 'build.js'])
+    watch(['!jspm_packages', 'lib/**/*', 'index.html', 'css/**/*'])
         .pipe(connect.reload());
 });
 
-gulp.task('default', ['connect', 'build', 'watch']);
+gulp.task('tests', function (cb) {
+    watch(['test/**/*', 'lib/**/*'], function () {
+        start('npm test', cb);
+    });
+
+});
+
+gulp.task('default', ['connect', 'watch']);

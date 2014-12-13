@@ -67,6 +67,21 @@
     </div>
 </body>
 
+<script src="jspm_packages/system.js"></script>
+<script src="config.js"></script>
+<script>
+    /* global System */
+    System.import('lib/index.jsx!').then(function (layOutDay) {
+        layOutDay([
+            {start: 30, end: 150},
+            {start: 540, end: 600},
+            {start: 560, end: 620},
+            {start: 610, end: 670}
+        ]);
+    });
+</script>
+
+<!--
 <script src="build.js"></script>
 <script>
 /* global layOutDay */
@@ -77,5 +92,6 @@ layOutDay([
     {start: 610, end: 670}
 ]);
 </script>
+-->
 
 </html>
