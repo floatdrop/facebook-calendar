@@ -8,6 +8,7 @@ System.config({
 
 System.config({
   "map": {
+    "clone": "npm:clone@0.2.0",
     "jquery": "github:components/jquery@2.1.1",
     "jsx": "github:floatdrop/plugin-jsx@0.1.1",
     "react": "npm:react@0.12.1",

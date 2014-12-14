@@ -9,7 +9,6 @@ module.exports = function (events) {
 
     function reactify(group) {
         group.forEach(function (e) {
-            e.groupSize = group.length;
             result.push(React.createElement(CalendarEvent, e));
         });
     }
