@@ -1,6 +1,6 @@
 # facebook-calendar
 
-> Calendar implemented with React and nice algorythm.
+> Calendar implemented with React and greedy algorythm.
 
 ![yup](https://cloud.githubusercontent.com/assets/365089/5419944/1857ec32-8272-11e4-93e8-ff20902b350d.png)
 
