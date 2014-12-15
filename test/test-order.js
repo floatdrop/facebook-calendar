@@ -1,6 +1,5 @@
 var test = require('tap').test;
 var order = require('../lib/events').order;
-var group = require('../lib/events').group;
 
 test('empty test', function (assert) {
     var actual = order([]);

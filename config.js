@@ -9,8 +9,8 @@ System.config({
 System.config({
   "map": {
     "clone": "npm:clone@0.2.0",
-    "jquery": "github:components/jquery@2.1.1",
     "jsx": "github:floatdrop/plugin-jsx@0.1.1",
+    "qwery": "npm:qwery@4.0.0",
     "react": "npm:react@0.12.1",
     "github:floatdrop/plugin-jsx@0.1.1": {
       "react-tools": "npm:react-tools@0.12.1"
@@ -23,7 +23,7 @@ System.config({
       "json": "github:systemjs/plugin-json@0.1.0"
     },
     "npm:commoner@0.10.1": {
-      "commander": "npm:commander@2.5.0",
+      "commander": "npm:commander@2.5.1",
       "glob": "npm:glob@4.2.2",
       "graceful-fs": "npm:graceful-fs@3.0.5",
       "iconv-lite": "npm:iconv-lite@0.4.5",
@@ -79,7 +79,7 @@ System.config({
       "envify": "npm:envify@3.2.0"
     },
     "npm:recast@0.9.11": {
-      "ast-types": "npm:ast-types@0.6.6",
+      "ast-types": "npm:ast-types@0.6.7",
       "esprima-fb": "npm:esprima-fb@8001.1001.0-dev-harmony-fb",
       "private": "npm:private@0.1.6",
       "source-map": "npm:source-map@0.1.40"

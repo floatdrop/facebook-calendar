@@ -1,15 +1,16 @@
 var CalendarEvent = require('lib/event.jsx!');
 var React = require('react');
-var $ = require('jquery');
+var $ = require('qwery');
 var group = require('./events').group;
 var order = require('./events').order;
 
 module.exports = function (events) {
-    var result = [];
+    var result = {};
 
+    var id = 1;
     function reactify(group) {
-        group.forEach(function (e) {
-            result.push(React.createElement(CalendarEvent, e));
+        group.forEach(function (event) {
+            result['event-' + (id++)] = React.createElement(CalendarEvent, event);
         });
     }
 
@@ -23,3 +24,5 @@ module.exports = function (events) {
         </div>
     ), $(".calendar--events")[0]);
 };
+
+(window || global || {}).layOutDay = module.exports;

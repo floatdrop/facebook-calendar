@@ -6,6 +6,7 @@ var CalendarEvent = React.createClass({
         var width = 600 / this.props.positions;
         var top = this.props.start;
         var position = this.props.position || 0;
+        var id = this.props.id;
 
         var eventStyle = {
             height: height + 'px',
@@ -15,7 +16,7 @@ var CalendarEvent = React.createClass({
         };
 
         return (
-            <div className="calendar--event" style={eventStyle}>
+            <div key={id} className="calendar--event" style={eventStyle}>
                 <dl>
                     <dt>Sample Item</dt>
                     <dd>Sample Location</dd>

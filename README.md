@@ -18,10 +18,3 @@ gulp
 ```
 
 After this you will can open [localhost:8080](http://localhost:8080/) to see results.
-
-## See also
-
- * https://github.com/codeboyim/fb-puzzle
- * https://github.com/kylejson/fb-coding-challenge
- * https://github.com/csvenja/facebook-coding-challenge
- * https://github.com/JayHuang/facebook-calendar
