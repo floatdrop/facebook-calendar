@@ -3,11 +3,12 @@ body
     font-family: 'Lucida Grande', sans-serif;
 }
 
-.calendar {
+.calendar
+{
     height: 720px;
 }
 
-.calendar--timestamp
+ul.calendar--timestamps > li
 {
     font-size: 9px;
     font-weight: 200;
@@ -20,7 +21,7 @@ body
     color: #a7a7a7;
 }
 
-.calendar--timestamp:nth-child(odd)
+ul.calendar--timestamps > li:nth-child(odd)
 {
     font-size: 13px;
     font-weight: 500;
@@ -28,7 +29,7 @@ body
     color: #686868;
 }
 
-.calendar--timestamp-period
+ul.calendar--timestamps > li > .period
 {
     font-size: 9px;
     font-weight: 200;
@@ -36,16 +37,19 @@ body
     color: #a7a7a7;
 }
 
-.calendar--timestamp:nth-child(even) .calendar--timestamp-period
+ul.calendar--timestamps > li:nth-child(even) .period
 {
     display: none;
 }
 
-.calendar--timestamps
+ul.calendar--timestamps
 {
     float: left;
 
-    margin-top: -5px;
+    margin: -5px 0 0 0;
+    padding: 0;
+
+    list-style-type: none;
 }
 
 .calendar--events
@@ -88,7 +92,8 @@ body
     border-bottom: 1px solid #d7d7d7;
 }
 
-.calendar--event > dl {
+.calendar--event > dl
+{
     margin: 0;
 }
 
@@ -103,6 +108,7 @@ body
 {
     font-size: 9px;
 
-    color: #a7a7a7;
     margin: 0;
+
+    color: #a7a7a7;
 }
