@@ -17,4 +17,4 @@ jspm install
 gulp
 ```
 
-After this you will can open [localhost:8080](http://localhost:8080/) to see results.
+After this you will can open [localhost:8080](http://localhost:8080/dev.html) to open development version.

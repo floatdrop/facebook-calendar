@@ -1,3 +1,8 @@
+/*
+ * This is builded file with SystemJS module system.
+ * Entry point in lib/index.js
+ */
+
 "format register";
 (function(global) {
 
@@ -22,7 +27,7 @@
   function register(name, deps, declare, execute) {
     if (typeof name != 'string')
       throw "System.register provided no module name";
-    
+
     var entry;
 
     // dynamic
@@ -46,10 +51,10 @@
     }
 
     entry.name = name;
-    
+
     // we never overwrite an existing define
     if (!defined[name])
-      defined[name] = entry; 
+      defined[name] = entry;
 
     entry.deps = dedupe(entry.deps);
 
@@ -70,17 +75,17 @@
     for (var i = 0, l = entry.normalizedDeps.length; i < l; i++) {
       var depName = entry.normalizedDeps[i];
       var depEntry = defined[depName];
-      
+
       // not in the registry means already linked / ES6
       if (!depEntry || depEntry.evaluated)
         continue;
-      
+
       // now we know the entry is in our unlinked linkage group
       var depGroupIndex = entry.groupIndex + (depEntry.declarative != entry.declarative);
 
       // the group index of an entry is always the maximum
       if (depEntry.groupIndex === undefined || depEntry.groupIndex < depGroupIndex) {
-        
+
         // if already in a group, remove from the old group
         if (depEntry.groupIndex) {
           groups[depEntry.groupIndex].splice(indexOf.call(groups[depEntry.groupIndex], depEntry), 1);
@@ -118,7 +123,7 @@
         else
           linkDynamicModule(entry);
       }
-      curGroupDeclarative = !curGroupDeclarative; 
+      curGroupDeclarative = !curGroupDeclarative;
     }
   }
 
@@ -156,7 +161,7 @@
       module.locked = false;
       return value;
     });
-    
+
     module.setters = declaration.setters;
     module.execute = declaration.execute;
 
@@ -217,7 +222,7 @@
     else {
       if (entry.declarative)
         ensureEvaluated(name, []);
-    
+
       else if (!entry.evaluated)
         linkDynamicModule(entry);
 
@@ -257,7 +262,7 @@
         return getModule(entry.normalizedDeps[i]);
       }
     }, exports, module);
-    
+
     if (output)
       module.exports = output;
   }
@@ -268,7 +273,7 @@
    *  (unless one is a circular dependency already in the list of seen
    *  modules, in which case we execute it)
    *
-   * Then we evaluate the module itself depth-first left to right 
+   * Then we evaluate the module itself depth-first left to right
    * execution to match ES6 modules
    */
   function ensureEvaluated(moduleName, seen) {
@@ -311,7 +316,7 @@
     if (!entry)
       throw "Module " + name + " not present.";
 
-    // recursively ensure that the module and all its 
+    // recursively ensure that the module and all its
     // dependencies are linked (with dependency group handling)
     link(name);
 
@@ -339,15 +344,15 @@
     // otherwise, self execute
     else {
       declare(System = {
-        register: register, 
-        get: load, 
+        register: register,
+        get: load,
         set: function(name, module) {
-          modules[name] = module; 
+          modules[name] = module;
         },
         newModule: function(module) {
           return module;
         },
-        global: global 
+        global: global
       });
       load(main);
     }
